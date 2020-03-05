@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/pichi/Documentos/rdenv/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
