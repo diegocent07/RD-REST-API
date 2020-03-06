@@ -20,6 +20,11 @@ export class Form extends Component {
 		const { name, email, message } = this.state;
 		const lead = { name, email, message };
 		this.props.addLead(lead);
+		this.setState({
+			name: '',
+			email: '',
+			message: ''
+		}); // limpia la pantalla de entrada de datos una vez agregado los datos
 	};
 
 	render() {
