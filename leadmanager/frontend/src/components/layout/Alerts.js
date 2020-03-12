@@ -12,12 +12,18 @@ export class Alerts extends Component {
 		const { error, alert, message } = this.props;
 		//this.props.alert.show('It Works!'); when reload say it works on didmount
 		if (error !== prevProps.error) {
-			alert.error('Datos no Válidos o ya existen');
+			//alert.error('Datos no Válidos o ya existen');
+			if (error.msg.name) alert.error(`Name: ${error.msg.name.join()}`);
+			if (error.msg.email) alert.error(`Email: ${error.msg.email.join()}`);
+
+			if (error.msg.non_field_errors) alert.error(error.msg.non_field_errors.join());
+			if (error.msg.username) alert.error(error.msg.username.join());
 		}
 
 		if (message !== prevProps.message) {
 			if (message.deleteLead) alert.success(message.deleteLead);
 			if (message.addLead) alert.success(message.addLead);
+			if (message.passwordNotMatch) alert.error(message.passwordNotMatch);
 		}
 	}
 	render() {
